@@ -1,9 +1,9 @@
 import {Student} from "../model/Student";
 import axios from "axios";
-import StudentCard from "../Component/StudentCard";
 import StudentComponent from "../Component/StudentComponent";
 import {useEffect, useState} from "react";
 import AddStudent from "../Component/AddStudent";
+
 
 export default function StudentApp(){
     const baseURL = "/student"
@@ -34,9 +34,9 @@ export default function StudentApp(){
     }
 
     return (
-        <div>
-            <StudentComponent studentsToMap={allStudents} handleFinishStudent={deleteStudent}/>
+        <div className={"AddStudent"}>
             <AddStudent handleAddStudent={addStudent} />
+            <StudentComponent studentsToMap={allStudents} handleFinishStudent={deleteStudent}/>
         </div>
     )
 }
