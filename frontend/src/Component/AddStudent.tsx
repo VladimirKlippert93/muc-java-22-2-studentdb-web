@@ -21,7 +21,7 @@ export default function AddStudent(props: AddStudentProps){
     }
     return(
         <section>
-            <input onChange={handleNameChange}/>
+            <input onChange={handleNameChange} />
             <button onClick={handleAddStudent}>Student hinzufügen</button>
         </section>
     )

@@ -8,7 +8,7 @@ import AddStudent from "../Component/AddStudent";
 export default function StudentApp(){
     const baseURL = "/student"
 
-    const [allStduents, setAllStudents] = useState<Student[]>([])
+    const [allStudents, setAllStudents] = useState<Student[]>([])
 
     useEffect(()=>{
         axios.get(baseURL)
@@ -28,14 +28,14 @@ export default function StudentApp(){
     function deleteStudent(studentToDelete: string){
         axios.delete(baseURL+"/"+studentToDelete)
             .then(()=>{
-                const updatedStudentList = allStduents.filter((students)=>students.name !== studentToDelete)
+                const updatedStudentList = allStudents.filter((students)=>students.id !== studentToDelete)
                 setAllStudents(updatedStudentList)
             })
     }
 
     return (
         <div>
-            <StudentComponent studentsToMap={allStduents} handleFinishStudent={deleteStudent}/>
+            <StudentComponent studentsToMap={allStudents} handleFinishStudent={deleteStudent}/>
             <AddStudent handleAddStudent={addStudent} />
         </div>
     )
