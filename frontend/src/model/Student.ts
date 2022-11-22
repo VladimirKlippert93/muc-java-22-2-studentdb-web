@@ -1,4 +1,7 @@
 export type Student = {
-    id?:string,
+    id:string,
+    name:string
+}
+export type NewStudent = {
     name:string
 }

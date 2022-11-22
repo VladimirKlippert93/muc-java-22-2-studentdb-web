@@ -3,9 +3,13 @@ import axios from "axios";
 import StudentComponent from "../Component/StudentComponent";
 import {useEffect, useState} from "react";
 import AddStudent from "../Component/AddStudent";
+import useStudents from "../Hooks/useStudents";
+import StudentCard from "../Component/StudentCard";
 
 
 export default function StudentApp(){
+    {/*
+
     const baseURL = "/student"
 
     const [allStudents, setAllStudents] = useState<Student[]>([])
@@ -37,6 +41,16 @@ export default function StudentApp(){
         <div className={"AddStudent"}>
             <AddStudent handleAddStudent={addStudent} />
             <StudentComponent studentsToMap={allStudents} handleFinishStudent={deleteStudent}/>
+        </div>
+    )
+    */}
+    const [students, addStudents, removeStudent] = useStudents()
+
+    return(
+        <div>
+            <h1 className={"student-app__title"}>Students</h1>
+            <AddStudent handleAddStudent={addStudents}/>
+            <StudentComponent  studentsToMap={students} handleFinishStudent={removeStudent}/>
         </div>
     )
 }

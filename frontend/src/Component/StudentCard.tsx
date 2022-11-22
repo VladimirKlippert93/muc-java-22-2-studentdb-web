@@ -3,17 +3,13 @@ import "./StudentCard.css"
 
 type StudentCardProps = {
     studentToDisplay: Student
-    handleFinishStudent(studentID: string):void
+    handleFinishStudent:(studentID: string)=>void
 }
 
 export default function StudentCard(props: StudentCardProps){
 
     function handleFinishStudent(){
-        if(props.studentToDisplay.id){
             props.handleFinishStudent(props.studentToDisplay.id)
-        }else{
-            console.error("Die ID die du löschen möchtest, gibt es nicht!")
-        }
     }
     return(
         <div className={"StudentBox"}>

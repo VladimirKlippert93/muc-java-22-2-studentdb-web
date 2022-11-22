@@ -11,6 +11,7 @@ export default function AddStudent(props: AddStudentProps){
 
     function handleAddStudent(){
         const newStudent: Student={
+            id:"",
             name: studentName
         }
         props.handleAddStudent(newStudent)
